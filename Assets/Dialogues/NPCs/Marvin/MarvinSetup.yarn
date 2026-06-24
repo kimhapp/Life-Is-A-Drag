@@ -1,0 +1,23 @@
+title: MarvinSetup
+position: -74,-228
+---
+<<declare $Marvin_likePoint = 0>>
+<<declare $Marvin_quirkPoint = 0>>
+<<declare $Marvin_lovePoint = 0>>
+<<declare $Marvin_asPossibleLoveInterest = true>>
+<<declare $Marvin_hasSpokenTo = false>>
+
+<<if $currentDay == 1>>
+    <<if $currentTime== "Morning">>
+        <<jump MarvinDay1Morning>>
+    <<elseif $currentTime== "Afternoon">>
+        <<if $Marvin_hasSpokenTo>>
+            <<jump CafeteriaDay1Afternoon>>
+        <<else>>
+            <<jump MarvinDay1Afternoon>>
+        <<endif>>
+    <<elseif $currentTime== "Evening">>
+        <<jump CityDay1Evening>>
+    <<endif>>
+<<endif>>
+===

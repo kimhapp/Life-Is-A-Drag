@@ -1,0 +1,56 @@
+﻿title: CityDay1Evening
+---
+<<if $Shelly_inviteToLunch>>
+    Marvin: Hey Jerome, we were waiting for you to say Goodbye.
+    <<if $Shelly_likePoint >= 2>>
+        Shelly: Yeah. This marvin isn't so bad after all.
+        Me: Huh, I wouldn't expect you two to get along very well.
+        Shelly: Well, he's a geek and I'm a geek.
+        Me: Wait, a geek?
+        Marvin: Yeah, I studied Computer Science before coming here.
+        -> Oh wow, I didn't know that. That's awesome.
+            <<set $Marvin_likePoint += 1>>
+        -> Oh, so you're a nerd? I like nerds.
+            <<if $Marvin_quirkPoint >= 1>>
+                <<set $Marvin_lovePoint += 1>>
+            <<endif>>
+        <<if $Marvin_lovePoint >= 1>>
+            Marvin: Oh....uhh, I..see.
+            Shelly: Looks like someone is flustered.
+        <<else>>
+            Marvin: Haha!
+        <<endif>>
+    <<endif>>
+    Shelly: Alright, I'll just say bye here.
+    Marvin: Yeah, i have to get going as well.
+    Me: Bye Shelly and Marvin.
+    Marvin: See you tomorrow Jerome.
+    Shelly: See ya.
+<<else>>
+    Me: Oh? Didn't know you two know each other.
+    Shelly: Not really. It just so happens that we both are good at math.
+    Shelly: So he decided to ask me about something.
+    Marvin: It was nothing big.
+    Marvin: Anyways, we should get going now.
+    Shelly: Same. Well, goodbye you two.
+    Me: Bye Shelly.
+    <<set_object_inactive Evening_Shelly true>>
+    *Shelly left*
+    Marvin: Hey, Jerome. Thanks for today.
+    <<if $Marvin_likePoint >= 2>>
+        Marvin: I know we will get through it together again.
+    <<endif>>
+    <<if $Marvin_lovePoint >= 1>>
+        Marvin: Thank you for being proud of me.
+    <<endif>>
+    Marvin: See you tomorrow.
+    Me: See you Marvin.
+<<endif>>
+<<play_crossfade_normal>>
+<<change_objective "Go to Town">>
+<<set_object_inactive Evening_Marvin false>>
+<<if $Shelly_inviteToLunch>>
+<<set_object_inactive Evening_Shelly false>>
+<<endif>>
+<<set_object_active "Town_Trigger_Point" true>>
+===

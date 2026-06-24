@@ -1,0 +1,22 @@
+﻿title: ShellySetup
+position: -74,-228
+---
+<<declare $Shelly_likePoint = 0>>
+<<declare $Shelly_positivePoint = 0>>
+<<declare $Shelly_honestPoint = 0>>
+<<declare $Shelly_hasSpokenTo = false>>
+
+<<if $currentDay == 1>>
+    <<if $currentTime== "Morning">>
+        <<jump ShellyDay1Morning>>
+    <<elseif $currentTime== "Afternoon">>
+        <<if $Marvin_hasSpokenTo>>
+            <<jump CafeteriaDay1Afternoon>>
+        <<endif>>
+    <<elseif $currentTime== "Evening">>
+        <<jump CityDay1Evening>>
+    <<elseif $currentTime== "Night">>
+        <<jump ShellyDay1Night>>
+    <<endif>>
+<<endif>>
+===

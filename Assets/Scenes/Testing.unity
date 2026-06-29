@@ -124,7 +124,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7385890369696596962, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
   m_PrefabInstance: {fileID: 450494420}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &190295967
+--- !u!114 &190295965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,8 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2559cb075f723c83e9579daaaf3d0540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QTETimeBar
+  qteLeftAction: {fileID: 2643374110681709634, guid: fcaf4ea6965e91b4f9b520051c1d35dd, type: 3}
+  qteRightAction: {fileID: 7440461793341503488, guid: fcaf4ea6965e91b4f9b520051c1d35dd, type: 3}
   direction: 1
-  speed: 1
+  speed: 0.25
 --- !u!1001 &450494420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,7 +150,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 398730206131992804, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 398730206131992804, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -208,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6384446933537812295, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6384446933537812295, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
       propertyPath: m_SizeDelta.y
@@ -312,7 +314,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7385890369696596962, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 190295967}
+      addedObject: {fileID: 190295965}
   m_SourcePrefab: {fileID: 100100000, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
 --- !u!1 &950292712
 GameObject:

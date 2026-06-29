@@ -71,6 +71,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "QTE",
+            "id": "6d81d4b4-8dd9-414f-a8b4-1d43afe704bb",
+            "actions": [
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "6fd696ed-0f11-4494-9522-01ba8e65d09d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Right",
+                    "type": "Button",
+                    "id": "cda891b1-4d0a-4917-ac98-b023d0d65236",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Timing",
+                    "type": "Button",
+                    "id": "2c2023a0-2533-46bd-968a-8e41ceda1c28",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "91ffac91-d8bb-4650-a9ef-0f91c26f21c1",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3cd96c1-9fae-4f6f-9fb6-71606c3e3b09",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69a4afb5-dbca-43a5-9774-8c50ecdcf8ef",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Timing",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

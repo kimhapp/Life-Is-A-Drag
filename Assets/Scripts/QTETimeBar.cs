@@ -11,7 +11,6 @@ public class QTETimeBar : MonoBehaviour
     [SerializeField] float speed = 1f;
 
     Slider slider;
-    Vector2 safezoneMinMax = new(0.45f, 0.55f);
 
     void Awake()
     {
@@ -26,10 +25,6 @@ public class QTETimeBar : MonoBehaviour
     void Start()
     {
         slider = GetComponent<Slider>();
-
-        // Debug enabled state
-        Debug.Log($"Move action enabled: {qteLeftAction.action.enabled}");
-        Debug.Log($"Interact action enabled: {qteRightAction.action.enabled}");
     }
 
     // Update is called once per frame
@@ -44,11 +39,6 @@ public class QTETimeBar : MonoBehaviour
         else if (slider.value <= slider.minValue)
         {
             direction = 1f;
-        }
-
-        if (slider.value >= safezoneMinMax.x && slider.value <= safezoneMinMax.y)
-        {
-            Debug.Log("In safezone!");
         }
     }
 

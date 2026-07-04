@@ -13,16 +13,12 @@ public class QTEButton : MonoBehaviour
 
     void Awake()
     {
-        qteButtonAction.action.Enable();
 
-        qteButtonAction.action.started += PressQTE;
     }
 
     void Update()
     {
         timeElapsed += Time.deltaTime;
-
-        Debug.Log($"time: {timeElapsed}");
 
         if (timeElapsed >= length + .5f)
         {
@@ -32,24 +28,36 @@ public class QTEButton : MonoBehaviour
 
     void OnEnable()
     {
+        qteButtonAction.action.Enable();
+        qteButtonAction.action.started += PressQTE;
+
         animator.SetTrigger("OnEnable");
         length = animationClip.length;
         timeElapsed = 0f;
     }
 
+    void OnDisable()
+    {
+        qteButtonAction.action.Disable();
+        qteButtonAction.action.started -= PressQTE;
+    }
+
     void PressQTE(InputAction.CallbackContext callback)
     {
-        if (timeElapsed < length)
+        if (timeElapsed < length - .15f)
         {
             Debug.Log("Too early!");
         } else
         {
             Debug.Log("Pressed QTE");
         }
+
+        gameObject.SetActive(false);
     }
 
     void MissQTE()
     {
         Debug.Log("Miss QTE");
+        gameObject.SetActive(false);
     }
 }

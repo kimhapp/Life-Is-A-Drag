@@ -124,6 +124,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7203249467269241474, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
   m_PrefabInstance: {fileID: 450494420}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &62435054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62435056}
+  - component: {fileID: 62435055}
+  m_Layer: 0
+  m_Name: QTEManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &62435055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62435054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e217a3a9446679a7faa672ce76b1b30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QTEManager
+  qteButton: {fileID: 238585259}
+--- !u!4 &62435056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62435054}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 544.2193, y: 312.96478, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &190295963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7385890369696596962, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
@@ -145,6 +190,7 @@ MonoBehaviour:
   qteRightAction: {fileID: 7440461793341503488, guid: fcaf4ea6965e91b4f9b520051c1d35dd, type: 3}
   direction: 1
   speed: 0.25
+  backgroundImage: {fileID: 0}
 --- !u!1 &238585257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,3 +1085,4 @@ SceneRoots:
   - {fileID: 950292714}
   - {fileID: 450494420}
   - {fileID: 1977383234}
+  - {fileID: 62435056}

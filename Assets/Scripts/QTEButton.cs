@@ -13,7 +13,7 @@ public class QTEButton : MonoBehaviour
 
     void Awake()
     {
-
+        
     }
 
     void Update()

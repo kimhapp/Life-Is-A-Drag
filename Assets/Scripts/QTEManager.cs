@@ -4,13 +4,14 @@ using UnityEngine;
 public class QTEManager : MonoBehaviour
 {
     [SerializeField] QTEButton qteButton;
+    [SerializeField] QTETimeBar qteTimeBar;
 
     bool isStarting = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (!qteButton.gameObject.activeInHierarchy)
+        if (!qteButton.gameObject.activeInHierarchy && !qteTimeBar.gameObject.activeInHierarchy)
         {
             if (!isStarting)
             {
@@ -22,9 +23,32 @@ public class QTEManager : MonoBehaviour
     IEnumerator StartQTE()
     {
         isStarting = true;
-        Debug.Log("Spawning soon!");
+
+        int randomNum = Random.Range(1, 3);
+        switch (randomNum)
+        {
+            case 1: 
+                Debug.Log("Spawning button soon!");
+                break;
+            case 2:
+                Debug.Log("Spawning timebar soon!");
+                break;
+
+        }
+        
         yield return new WaitForSeconds(3f);
-        qteButton.gameObject.SetActive(true);
+
+        switch (randomNum)
+        {
+            case 1: 
+                qteButton.gameObject.SetActive(true);
+                break;
+            case 2:
+                qteTimeBar.gameObject.SetActive(true);
+                break;
+
+        }
+        
         isStarting = false;
     }
 }

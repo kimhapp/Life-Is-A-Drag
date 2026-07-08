@@ -8,19 +8,19 @@ public class QTETimeBar : MonoBehaviour
 {
     [SerializeField] InputActionReference qteLeftAction;
     [SerializeField] InputActionReference qteRightAction;
-    [SerializeField] float direction = 1f;
     [SerializeField] float speed = 1f;
     [SerializeField] Image backgroundImage;
+    [SerializeField] float duration = 2.0f;
 
     Slider slider;
+    float timeElapsed = 0f;
     Vector2 safeZoneValue = new(.4f, .6f);
-    float maxTimeOutOfSafeZone = 2.0f;
+    float maxTimeOutOfSafeZone = 1.0f;
     float currentTimeOutOfSafeZone = 0.0f;
     Color safeColor;
 
     void Awake()
     {
-
         safeColor = backgroundImage.color;
     }
 
@@ -33,13 +33,14 @@ public class QTETimeBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateDuration();
         UpdateSliderPosition();
         CalculateOutOfSafeZone();
     }
 
     void UpdateSliderPosition()
     {
-        slider.value += direction * speed * Time.deltaTime;
+        slider.value += speed * Time.deltaTime;
 
         if (slider.value >= slider.maxValue)
         {
@@ -62,10 +63,22 @@ public class QTETimeBar : MonoBehaviour
             backgroundImage.color = Color.Lerp(safeColor, Color.red, timeElapsed);
 
             if (currentTimeOutOfSafeZone >= maxTimeOutOfSafeZone)
-            {
+            {   
+                Debug.Log("Fail!");
                 gameObject.SetActive(false);
             }
         } 
+    }
+
+    void UpdateDuration()
+    {
+        timeElapsed += Time.deltaTime;
+
+        if (timeElapsed >= duration)
+        {
+            Debug.Log("Pass!");
+            gameObject.SetActive(false);
+        }
     }
 
     void OnEnable()
@@ -88,13 +101,11 @@ public class QTETimeBar : MonoBehaviour
 
     void TurnSliderLeft(InputAction.CallbackContext callback)
     {
-        Debug.Log("left!");
-        direction = -1f;
+        speed = -Math.Abs(speed);
     }
 
     void TurnSliderRight(InputAction.CallbackContext callback)
     {
-        Debug.Log("right!");
-        direction = 1f;
+        speed = Math.Abs(speed);
     }
 }

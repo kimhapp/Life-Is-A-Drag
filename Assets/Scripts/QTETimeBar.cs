@@ -2,32 +2,33 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 [RequireComponent(typeof(Slider))]
 public class QTETimeBar : MonoBehaviour
 {
     [SerializeField] InputActionReference qteLeftAction;
     [SerializeField] InputActionReference qteRightAction;
+    [SerializeField] DialogueRunner dialogueRunner;
+    [SerializeField] Slider slider;
     [SerializeField] float speed = 1f;
     [SerializeField] Image backgroundImage;
     [SerializeField] float duration = 2.0f;
+    [SerializeField] float maxTimeOutOfSafeZone = 1.0f;
 
-    Slider slider;
     float timeElapsed = 0f;
-    Vector2 safeZoneValue = new(.4f, .6f);
-    float maxTimeOutOfSafeZone = 1.0f;
+    Vector2 safeZoneValue = new(0.4f, 0.6f);
     float currentTimeOutOfSafeZone = 0.0f;
     Color safeColor;
 
     void Awake()
     {
         safeColor = backgroundImage.color;
-    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        slider = GetComponent<Slider>();
+        // dialogueRunner.AddCommandHandler(
+        //     "qte_timebar",
+        //     () => gameObject.SetActive(true)
+        // );
     }
 
     // Update is called once per frame
@@ -88,6 +89,10 @@ public class QTETimeBar : MonoBehaviour
 
         qteLeftAction.action.started += TurnSliderLeft;
         qteRightAction.action.started += TurnSliderRight;
+
+        timeElapsed = 0f;
+        currentTimeOutOfSafeZone = 0f;
+        slider.value = 0.5f;
     }
 
     void OnDisable()

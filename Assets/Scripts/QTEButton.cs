@@ -1,19 +1,24 @@
-using System.Collections;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Yarn.Unity;
 
 public class QTEButton : MonoBehaviour
 {
     [SerializeField] InputActionReference qteButtonAction;
     [SerializeField] Animator animator;
     [SerializeField] AnimationClip animationClip;
+    [SerializeField] DialogueRunner dialogueRunner;
 
     float timeElapsed = 0f;
     float length = 0f;
 
     void Awake()
     {
-        
+        // dialogueRunner.AddCommandHandler(
+        //     "qte_button",
+        //     () => gameObject.SetActive(true)
+        // );
     }
 
     void Update()

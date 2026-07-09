@@ -1,6 +1,4 @@
-
-using System.Collections;
-using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Yarn.Unity;
@@ -11,6 +9,7 @@ public class QTEButton : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] AnimationClip animationClip;
     [SerializeField] DialogueRunner dialogueRunner;
+    [SerializeField] TextMeshProUGUI resultText;
     [SerializeField] float speed = 1f;
     
     float timeElapsed = 0f;
@@ -31,7 +30,7 @@ public class QTEButton : MonoBehaviour
         // Can be 15% late
         if (timeElapsed >= length * 1.15f)
         {
-            MissQTE();
+            OnFail();
         }   
     }
 
@@ -59,23 +58,33 @@ public class QTEButton : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    void OnPass()
+    {
+        resultText.text = "Pass!";
+        resultText.color = Color.green;
+        gameObject.SetActive(false);
+        resultText.gameObject.SetActive(true);
+    }
+
+    void OnFail()
+    {
+        resultText.text = "Fail!";
+        resultText.color = Color.red;
+        gameObject.SetActive(false);
+        resultText.gameObject.SetActive(true);
+    }
+
     void PressQTE(InputAction.CallbackContext callback)
     {
         // Can be 15% early
         if (timeElapsed < length * 0.85f)
         {
-            Debug.Log("Too early!");
+            OnFail();
         } else
         {
-            Debug.Log("Pressed QTE");
+            OnPass();
         }
 
-        gameObject.SetActive(false);
-    }
-
-    void MissQTE()
-    {
-        Debug.Log("Miss QTE");
         gameObject.SetActive(false);
     }
 }

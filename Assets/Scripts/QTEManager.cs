@@ -24,7 +24,7 @@ public class QTEManager : MonoBehaviour
     {
         isStarting = true;
 
-        int randomNum = Random.Range(1, 2);
+        int randomNum = Random.Range(1, 3);
         switch (randomNum)
         {
             case 1: 

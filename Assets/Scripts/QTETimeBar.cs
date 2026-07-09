@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class QTETimeBar : MonoBehaviour
     [SerializeField] InputActionReference qteLeftAction;
     [SerializeField] InputActionReference qteRightAction;
     [SerializeField] DialogueRunner dialogueRunner;
+    [SerializeField] TextMeshProUGUI resultText;
     [SerializeField] Slider slider;
     [SerializeField] float speed = 1f;
     [SerializeField] Image backgroundImage;
@@ -64,9 +66,8 @@ public class QTETimeBar : MonoBehaviour
             backgroundImage.color = Color.Lerp(safeColor, Color.red, timeElapsed);
 
             if (currentTimeOutOfSafeZone >= maxTimeOutOfSafeZone)
-            {   
-                Debug.Log("Fail!");
-                gameObject.SetActive(false);
+            {
+                OnFail();
             }
         } 
     }
@@ -77,8 +78,7 @@ public class QTETimeBar : MonoBehaviour
 
         if (timeElapsed >= duration)
         {
-            Debug.Log("Pass!");
-            gameObject.SetActive(false);
+            OnPass();
         }
     }
 
@@ -112,6 +112,22 @@ public class QTETimeBar : MonoBehaviour
         this.duration = duration;
         this.maxTimeOutOfSafeZone = maxTimeOutOfSafeZone;
         gameObject.SetActive(true);
+    }
+
+    void OnPass()
+    {
+        resultText.text = "Pass!";
+        resultText.color = Color.green;
+        gameObject.SetActive(false);
+        resultText.gameObject.SetActive(true);
+    }
+
+    void OnFail()
+    {
+        resultText.text = "Fail!";
+        resultText.color = Color.red;
+        gameObject.SetActive(false);
+        resultText.gameObject.SetActive(true);
     }
 
     void TurnSliderLeft(InputAction.CallbackContext callback)

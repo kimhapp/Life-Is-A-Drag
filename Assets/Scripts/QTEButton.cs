@@ -1,4 +1,6 @@
 
+using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Yarn.Unity;
@@ -9,15 +11,16 @@ public class QTEButton : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] AnimationClip animationClip;
     [SerializeField] DialogueRunner dialogueRunner;
-
+    [SerializeField] float speed = 1f;
+    
     float timeElapsed = 0f;
     float length = 0f;
 
     void Awake()
     {
-        // dialogueRunner.AddCommandHandler(
+        // dialogueRunner.AddCommandHandler<float>(
         //     "qte_button",
-        //     () => gameObject.SetActive(true)
+        //     TurnOn
         // );
     }
 
@@ -25,7 +28,8 @@ public class QTEButton : MonoBehaviour
     {
         timeElapsed += Time.deltaTime;
 
-        if (timeElapsed >= length + .5f)
+        // Can be 15% late
+        if (timeElapsed >= length * 1.15f)
         {
             MissQTE();
         }   
@@ -36,8 +40,10 @@ public class QTEButton : MonoBehaviour
         qteButtonAction.action.Enable();
         qteButtonAction.action.started += PressQTE;
 
+        // Reset all states
+        animator.SetFloat("Speed", speed);
         animator.SetTrigger("OnEnable");
-        length = animationClip.length;
+        length = animationClip.length / speed; // Must manually calculate length due to animator not getting the clip's actual length with speed
         timeElapsed = 0f;
     }
 
@@ -47,9 +53,16 @@ public class QTEButton : MonoBehaviour
         qteButtonAction.action.started -= PressQTE;
     }
 
+    public void TurnOn(float speed = 1f)
+    {
+        this.speed = speed;
+        gameObject.SetActive(true);
+    }
+
     void PressQTE(InputAction.CallbackContext callback)
     {
-        if (timeElapsed < length - .15f)
+        // Can be 15% early
+        if (timeElapsed < length * 0.85f)
         {
             Debug.Log("Too early!");
         } else

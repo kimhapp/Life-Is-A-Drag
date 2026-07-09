@@ -13,21 +13,21 @@ public class QTETimeBar : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] float speed = 1f;
     [SerializeField] Image backgroundImage;
-    [SerializeField] float duration = 2.0f;
-    [SerializeField] float maxTimeOutOfSafeZone = 1.0f;
+    [SerializeField] float duration = 2f;
+    [SerializeField] float maxTimeOutOfSafeZone = 1f;
 
     float timeElapsed = 0f;
     Vector2 safeZoneValue = new(0.4f, 0.6f);
-    float currentTimeOutOfSafeZone = 0.0f;
+    float currentTimeOutOfSafeZone = 0f;
     Color safeColor;
 
     void Awake()
     {
         safeColor = backgroundImage.color;
 
-        // dialogueRunner.AddCommandHandler(
+        // dialogueRunner.AddCommandHandler<float, float, float>(
         //     "qte_timebar",
-        //     () => gameObject.SetActive(true)
+        //     TurnOn
         // );
     }
 
@@ -90,9 +90,11 @@ public class QTETimeBar : MonoBehaviour
         qteLeftAction.action.started += TurnSliderLeft;
         qteRightAction.action.started += TurnSliderRight;
 
+        // Reset all states
         timeElapsed = 0f;
         currentTimeOutOfSafeZone = 0f;
         slider.value = 0.5f;
+        backgroundImage.color = safeColor;
     }
 
     void OnDisable()
@@ -102,6 +104,14 @@ public class QTETimeBar : MonoBehaviour
 
         qteLeftAction.action.started -= TurnSliderLeft;
         qteRightAction.action.started -= TurnSliderRight;
+    }
+
+    public void TurnOn(float speed = 0.5f, float duration = 2f, float maxTimeOutOfSafeZone = 1f)
+    {
+        this.speed = speed;
+        this.duration = duration;
+        this.maxTimeOutOfSafeZone = maxTimeOutOfSafeZone;
+        gameObject.SetActive(true);
     }
 
     void TurnSliderLeft(InputAction.CallbackContext callback)

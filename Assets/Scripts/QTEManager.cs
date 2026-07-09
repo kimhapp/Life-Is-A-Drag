@@ -24,7 +24,7 @@ public class QTEManager : MonoBehaviour
     {
         isStarting = true;
 
-        int randomNum = Random.Range(1, 3);
+        int randomNum = Random.Range(1, 2);
         switch (randomNum)
         {
             case 1: 
@@ -41,12 +41,11 @@ public class QTEManager : MonoBehaviour
         switch (randomNum)
         {
             case 1: 
-                qteButton.gameObject.SetActive(true);
+                qteButton.TurnOn();
                 break;
             case 2:
-                qteTimeBar.gameObject.SetActive(true);
+                qteTimeBar.TurnOn();
                 break;
-
         }
         
         isStarting = false;

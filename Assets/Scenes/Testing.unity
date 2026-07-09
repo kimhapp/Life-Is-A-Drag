@@ -244,6 +244,10 @@ PrefabInstance:
       value: Qte UI
       objectReference: {fileID: 0}
     - target: {fileID: 5947306460934367378, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 450494421}
+    - target: {fileID: 5947306460934367378, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
       propertyPath: backgroundImage
       value: 
       objectReference: {fileID: 1673175806}
@@ -352,6 +356,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
+--- !u!114 &450494421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3621714449857830435, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
+  m_PrefabInstance: {fileID: 450494420}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &950292712
 GameObject:
   m_ObjectHideFlags: 0

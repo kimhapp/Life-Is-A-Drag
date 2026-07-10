@@ -11,13 +11,10 @@ public enum BlipType
     Marvin
 }
 
-public class AudioManager : MonoBehaviour, IActionMarkupHandler
+public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
 {
-    [SerializeField] AudioClip[] bgms;
     [SerializeField] AudioClip[] blips;
-    [SerializeField] AudioSource bgmAudioSource;
     [SerializeField] AudioSource blipAudioSource;
-    [SerializeField] TimeManager timeManager;
     [SerializeField] LinePresenter linePresenter;
     [SerializeField] TextMeshProUGUI characterName;
 
@@ -32,14 +29,6 @@ public class AudioManager : MonoBehaviour, IActionMarkupHandler
     private void Start()
     {
         linePresenter.Typewriter.ActionMarkupHandlers.Add(this);
-        timeManager.OnTimeChanged += PlayBgm;
-    }
-
-    void PlayBgm()
-    {
-        bgmAudioSource.Stop();
-        bgmAudioSource.clip = bgms[(int) timeManager.GetCurrentTime()];
-        bgmAudioSource.Play();
     }
 
     // Will play the blip sound when each character appears on the screen.

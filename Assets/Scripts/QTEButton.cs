@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,13 +15,19 @@ public class QTEButton : MonoBehaviour
     
     float timeElapsed = 0f;
     float length = 0f;
+    bool? result;
 
     void Awake()
     {
-        // dialogueRunner.AddCommandHandler<float>(
-        //     "qte_button",
-        //     TurnOn
-        // );
+        // Make sure to not disable the gameobject since for some reasons 
+        // Awake is not called if the object is disabled before runtime 
+        
+        dialogueRunner.AddCommandHandler<float>(
+            "qte_button",
+            TurnOn
+        );
+
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -52,14 +59,23 @@ public class QTEButton : MonoBehaviour
         qteButtonAction.action.started -= PressQTE;
     }
 
-    public void TurnOn(float speed = 1f)
+    public IEnumerator TurnOn(float speed = 1f)
     {
+        result = null;
         this.speed = speed;
         gameObject.SetActive(true);
+
+        while (result == null)
+        {
+            yield return null;
+        }
+
+        dialogueRunner.VariableStorage.SetValue("$qteButtonResult", result?.ToString());
     }
 
     void OnPass()
     {
+        result = true;
         resultText.text = "Pass!";
         resultText.color = Color.green;
         gameObject.SetActive(false);
@@ -68,6 +84,7 @@ public class QTEButton : MonoBehaviour
 
     void OnFail()
     {
+        result = false;
         resultText.text = "Fail!";
         resultText.color = Color.red;
         gameObject.SetActive(false);

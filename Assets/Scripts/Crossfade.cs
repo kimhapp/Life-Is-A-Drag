@@ -18,7 +18,6 @@ public class Crossfade : MonoBehaviour
 
     void BeginCrossfade()
     {
-        Debug.Log("This goes second");
         player.cannotControl();
     }
 

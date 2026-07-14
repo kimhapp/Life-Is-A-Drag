@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,15 +23,21 @@ public class QTETimeBar : MonoBehaviour
     Vector2 safeZoneValue = new(0.4f, 0.6f);
     float currentTimeOutOfSafeZone = 0f;
     Color safeColor;
+    bool? result;
 
     void Awake()
     {
+        // Make sure to not disable the gameobject since for some reasons 
+        // Awake is not called if the object is disabled before runtime 
+        
         safeColor = backgroundImage.color;
 
-        // dialogueRunner.AddCommandHandler<float, float, float>(
-        //     "qte_timebar",
-        //     TurnOn
-        // );
+        dialogueRunner.AddCommandHandler<float, float, float>(
+            "qte_timebar",
+            TurnOn
+        );
+
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -106,16 +113,25 @@ public class QTETimeBar : MonoBehaviour
         qteRightAction.action.started -= TurnSliderRight;
     }
 
-    public void TurnOn(float speed = 0.5f, float duration = 2f, float maxTimeOutOfSafeZone = 1f)
+    public IEnumerator TurnOn(float speed = 0.5f, float duration = 2f, float maxTimeOutOfSafeZone = 1f)
     {
+        result = null;
         this.speed = speed;
         this.duration = duration;
         this.maxTimeOutOfSafeZone = maxTimeOutOfSafeZone;
         gameObject.SetActive(true);
+
+        while (result == null)
+        {
+            yield return null;
+        }
+
+        dialogueRunner.VariableStorage.SetValue("$qteTimebarResult", result?.ToString());
     }
 
     void OnPass()
     {
+        result = true;
         resultText.text = "Pass!";
         resultText.color = Color.green;
         gameObject.SetActive(false);
@@ -124,6 +140,7 @@ public class QTETimeBar : MonoBehaviour
 
     void OnFail()
     {
+        result = false;
         resultText.text = "Fail!";
         resultText.color = Color.red;
         gameObject.SetActive(false);

@@ -1,4 +1,21 @@
 ﻿title: Cat
 ---
-This is an example of a Yarn Spinner script. Write your dialogue here!
+Here's the start of the QTE button.
+<<wait 1>>
+<<qte_button>>
+<<wait 1>>
+<<if $qteButtonResult == "True">>
+    You pass button qte.
+<<else>>
+    You fail button qte.
+<<endif>>
+Here's the start of the QTE timebar.
+<<wait 1>>
+<<qte_timebar>>
+<<wait 1>>
+<<if $qteTimebarResult == "True">>
+    You pass timebar qte.
+<<else>>
+    You fail timebar qte.
+<<endif>>
 ===

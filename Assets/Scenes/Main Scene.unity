@@ -3026,7 +3026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3805328764841304066, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5031271878430384008, guid: 21693f25b0c297a689306dea9abd1d4b, type: 3}
       propertyPath: dialogueRunner

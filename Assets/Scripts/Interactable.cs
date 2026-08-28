@@ -8,9 +8,7 @@ public class Interactable : MonoBehaviour, IInteractable
     [SerializeField] string yarnNodeName;
     [SerializeField] GameObject interactableIndicator;
     
-
     PlayerController player;
-
     Animator crossfade;
     DialogueRunner dialogueRunner;
     InMemoryVariableStorage variableStorage;

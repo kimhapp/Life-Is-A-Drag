@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour, IInteractable
 {
-    public Action<Location> OnTeleport;
-
     [SerializeField] string textIndicator;
-    [SerializeField] Location location;
     [SerializeField] GameObject teleportDestination;
     [SerializeField] GameObject cam;
 
@@ -57,7 +54,6 @@ public class Teleporter : MonoBehaviour, IInteractable
     public void Teleport()
     {
         Teleporter teleporter = teleportDestination.GetComponent<Teleporter>();
-        OnTeleport?.Invoke(teleporter.location);
         teleporter.cam.SetActive(true);
         cam.SetActive(false);
 

@@ -1,6 +1,0 @@
-﻿title: Day1Morning
----
-Me: First day of school.
-Me: Gotta prepare myself first then go to school.
-<<set_object_inactive Mc's_Room/SpawnPoint true>>
-===

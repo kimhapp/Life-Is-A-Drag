@@ -17,7 +17,7 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
 
     private void OnDisable()
     {
-        if (player != null && player.interactable == this && dialogueType == Type.Interact)
+        if (player != null && player.interactable == (IInteractable)this && dialogueType == Type.Interact)
         {
             player.IsInRangeToInteract = false;
             player.interactable = null;
@@ -41,6 +41,20 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
             player = collidedObject.GetComponent<PlayerController>();
             player.IsInRangeToInteract = true;
             player.interactable = this;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        GameObject collidedObject = other.gameObject;
+
+        if (collidedObject.CompareTag("Player") && dialogueType == Type.Interact)
+        {
+            interactableIndicator.SetActive(false);
+
+            player = collidedObject.GetComponent<PlayerController>();
+            player.IsInRangeToInteract = false;
+            player.interactable = null;
         }
     }
 

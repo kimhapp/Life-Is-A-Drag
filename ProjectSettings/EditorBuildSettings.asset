@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Day Summary Scene.unity
+    path: Assets/Scenes/Day Summary.unity
     guid: 36524ead8664d024fa31fa2bbe8f10e1
+  - enabled: 1
+    path: Assets/Scenes/Chapters/Day 1/Morning/Day1_Morning_Part01.unity
+    guid: c62515559aa46e51c95443db87bfd3bd
+  - enabled: 1
+    path: Assets/Scenes/Chapters/Day 1/Morning/Day1_Morning_Part02.unity
+    guid: e8dbd9cf441b2da18ab96a7704723cc3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

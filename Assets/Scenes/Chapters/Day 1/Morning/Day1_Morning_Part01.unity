@@ -251,7 +251,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1001 &375301942
+--- !u!1001 &156961259
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -259,55 +259,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 505354437}
     m_Modifications:
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.265
+    - target: {fileID: 735362317353840710, guid: 48f70b97d1188367db73679a3b985907, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2064209528}
+    - target: {fileID: 735362317353840710, guid: 48f70b97d1188367db73679a3b985907, type: 3}
+      propertyPath: transitionSceneName
+      value: Day1_Morning_Part02
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.561
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.663
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4081893471802547790, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
-      propertyPath: yarnNodeName
-      value: Day1MorningPart1_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8910778020653801067, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5663749988486903278, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_Name
-      value: Interact Dialogue Trigger
+      value: Scene Loader
       objectReference: {fileID: 0}
-    - target: {fileID: 8910778020653801067, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
+    - target: {fileID: 5663749988486903278, guid: 48f70b97d1188367db73679a3b985907, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -315,11 +319,11 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
---- !u!4 &375301943 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 48f70b97d1188367db73679a3b985907, type: 3}
+--- !u!4 &156961260 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3507553225829251290, guid: a21a51364623017a6ac4735ede2f71aa, type: 3}
-  m_PrefabInstance: {fileID: 375301942}
+  m_CorrespondingSourceObject: {fileID: 5284761885517923992, guid: 48f70b97d1188367db73679a3b985907, type: 3}
+  m_PrefabInstance: {fileID: 156961259}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &505354436
 GameObject:
@@ -332,7 +336,7 @@ GameObject:
   - component: {fileID: 505354437}
   m_Layer: 0
   m_Name: Interactive Points
-  m_TagString: Untagged
+  m_TagString: InteractivePoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,7 +356,7 @@ Transform:
   m_Children:
   - {fileID: 1477561100}
   - {fileID: 1767745148}
-  - {fileID: 375301943}
+  - {fileID: 156961260}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &505836983
@@ -964,8 +968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978752ef49f4fafebb9701bc92ab0470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentDialogueSystem
-  interactivePoints: {fileID: 505354436}
   crossfade: {fileID: 2013193567}
+  interactivePoints: {fileID: 505354436}
 --- !u!114 &583503779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}

@@ -1,11 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public interface IInteractable
-{
-    public void Interact();
-}
-
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour

@@ -4,6 +4,5 @@ Me: First day of school.
 Me: Gotta prepare myself first then go to school.
 <<set_object_inactive Spawn_Point true>>
 <<set_object_inactive Dialogue_Trigger_01 true>>
-<<set_object_active "Interact Dialogue Trigger" true>>
-<<wait_for_crossfade>>
+<<set_object_active "Scene Loader" true>>
 ===

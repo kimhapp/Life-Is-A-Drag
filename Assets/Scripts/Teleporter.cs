@@ -1,21 +1,17 @@
-using TMPro;
 using UnityEngine;
 
 public class Teleporter : MonoBehaviour, IInteractable
 {
-    [SerializeField] string textIndicator;
+    [SerializeField] GameObject interactableIndicator;
     [SerializeField] GameObject teleportDestination;
     [SerializeField] GameObject cam;
+    [SerializeField] PlayerController player;
 
-    PlayerController player;
-    TextMeshProUGUI teleportIndicator;
     Animator crossfade;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = GameObject.Find("Jerome").GetComponent<PlayerController>();
-        teleportIndicator = GameObject.Find("UI/Teleport Indicator").GetComponent<TextMeshProUGUI>();
         crossfade = GameObject.Find("Crossfade").GetComponent<Animator>();
     }
 
@@ -25,7 +21,7 @@ public class Teleporter : MonoBehaviour, IInteractable
 
         if (collidedObject.CompareTag("Player"))
         {
-            teleportIndicator.text = textIndicator;
+            interactableIndicator.SetActive(true);
 
             player.IsInRangeToInteract = true;
             player.interactable = this;
@@ -38,7 +34,7 @@ public class Teleporter : MonoBehaviour, IInteractable
 
         if (collidedObject.CompareTag("Player"))
         {
-            teleportIndicator.text = "";
+            interactableIndicator.SetActive(false);
 
             player.IsInRangeToInteract = false;
             player.interactable = null;

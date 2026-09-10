@@ -1,29 +1,61 @@
-using TMPro;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour, IInteractable
 {
-    [SerializeField] string textIndicator;
-    [SerializeField] GameObject teleportDestination;
+    [SerializeField] GameObject interactableIndicator;
+    [SerializeField] string transitionSceneName;
+    [SerializeField] PlayerController player;
 
-    PlayerController player;
-    TextMeshProUGUI teleportIndicator;
     Animator crossfade;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        crossfade = GameObject.Find("Crossfade").GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        GameObject collidedObject = other.gameObject;
+
+        if (collidedObject.CompareTag("Player"))
+        {
+            interactableIndicator.SetActive(true);
+
+            player.IsInRangeToInteract = true;
+            player.interactable = this;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        GameObject collidedObject = other.gameObject;
+
+        if (collidedObject.CompareTag("Player"))
+        {
+            interactableIndicator.SetActive(false);
+
+            player.IsInRangeToInteract = false;
+            player.interactable = null;
+        }
     }
 
     public void Interact()
     {
-        crossfade.SetTrigger("Teleport");
+        StartCoroutine(StartCrossfade());
+    }
+
+    IEnumerator StartCrossfade()
+    {
+        if (crossfade == null)
+        {
+            Debug.LogError("Crossfade is missing!");
+            yield break;
+        }
+
+        crossfade.SetTrigger("Scene");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(transitionSceneName);
     }
 }

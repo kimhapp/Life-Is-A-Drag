@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Templates/Scene.unity
+    guid: ffb3256bab252b0ed9333ea3b0b6f73e
+  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 22108f7792da4454fa0faf0a665d6db6
   - enabled: 1
@@ -14,12 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day Summary.unity
     guid: 36524ead8664d024fa31fa2bbe8f10e1
-  - enabled: 1
-    path: Assets/Scenes/Chapters/Day 1/Morning/Day1_Morning_Part01.unity
-    guid: c62515559aa46e51c95443db87bfd3bd
-  - enabled: 1
-    path: Assets/Scenes/Chapters/Day 1/Morning/Day1_Morning_Part02.unity
-    guid: e8dbd9cf441b2da18ab96a7704723cc3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

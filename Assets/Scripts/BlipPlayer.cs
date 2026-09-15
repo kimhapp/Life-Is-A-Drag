@@ -11,12 +11,14 @@ public enum BlipType
     Marvin
 }
 
+[RequireComponent(typeof(AudioSource))]
 public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
 {
     [SerializeField] AudioClip[] blips;
-    [SerializeField] AudioSource blipAudioSource;
     [SerializeField] LinePresenter linePresenter;
     [SerializeField] TextMeshProUGUI characterName;
+
+    AudioSource blipAudioSource;
 
     public void OnLineDisplayBegin(MarkupParseResult line, TMP_Text text) { }
 
@@ -26,7 +28,12 @@ public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
 
     public void OnPrepareForLine(MarkupParseResult line, TMP_Text text) { }
 
-    private void Start()
+    void Awake()
+    {
+        blipAudioSource = GetComponent<AudioSource>();
+    }
+
+    void Start()
     {
         linePresenter.Typewriter.ActionMarkupHandlers.Add(this);
     }

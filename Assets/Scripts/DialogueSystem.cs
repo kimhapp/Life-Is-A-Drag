@@ -10,7 +10,7 @@ public class DialogueSystem : MonoBehaviour
     public static DialogueSystem Instance { get; private set; }
 
     [SerializeField] Animator crossfade;
-    [SerializeField] GameObject interactivePoints;
+    GameObject interactivePoints;
     DialogueRunner dialogueRunner;
 
     void Awake()
@@ -39,44 +39,6 @@ public class DialogueSystem : MonoBehaviour
             "wait_for_crossfade",
             WaitForCrossfade
         );
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnLoaded;
-    }
-
-    void OnSceneUnLoaded(Scene scene)
-    {
-        // Make sure that every time a scene unloads, interactive points is null
-        interactivePoints = null;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "Main Menu" || scene.name == "Day Summary")
-        {
-            return;
-        }
-
-        StartCoroutine(FindInteractivePointsDelayed());
-    }
-
-    IEnumerator FindInteractivePointsDelayed()
-    {
-        // Needs to be coroutined and wait for the next frame in case the objects load slow enough 
-        yield return null;
-
-        // Make sure that every time a new scene loads, it will find the interactive points first
-        interactivePoints = GameObject.FindWithTag("InteractivePoints");
-        if (interactivePoints == null)
-        {
-            Debug.LogError("Interatcive Points is missing!");
-        }
-    }
-
-    void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnLoaded;
     }
 
     public IEnumerator SetObjectInactive(GameObject gameObj, bool immediate)
@@ -100,6 +62,7 @@ public class DialogueSystem : MonoBehaviour
             yield break;
         }
 
+        // Crossfade normal has no begin and end trigger to avoid override yarn's event
         crossfade.SetTrigger("Normal");
         yield return new WaitForSeconds(1);
     }

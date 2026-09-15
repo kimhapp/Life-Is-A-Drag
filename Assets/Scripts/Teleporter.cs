@@ -5,49 +5,59 @@ public class Teleporter : MonoBehaviour, IInteractable
     [SerializeField] GameObject interactableIndicator;
     [SerializeField] GameObject teleportDestination;
     [SerializeField] GameObject cam;
-    [SerializeField] PlayerController player;
 
-    Animator crossfade;
+    PlayerController player;
+    Crossfade crossfade;
+    Animator crossfadeAnimator;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        crossfade = GameObject.Find("Crossfade").GetComponent<Animator>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        GameObject collidedObject = other.gameObject;
-
-        if (collidedObject.CompareTag("Player"))
+        GameObject crossfadeGameObject = GameObject.FindWithTag("Crossfade");
+        if (crossfadeGameObject != null)
         {
-            interactableIndicator.SetActive(true);
-
-            player.IsInRangeToInteract = true;
-            player.interactable = this;
+            crossfade = crossfadeGameObject.GetComponent<Crossfade>();
+            crossfadeAnimator = crossfadeGameObject.GetComponent<Animator>();
+        } else
+        {
+            Debug.LogError("Crossfade is missing!");
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         GameObject collidedObject = other.gameObject;
 
-        if (collidedObject.CompareTag("Player"))
-        {
-            interactableIndicator.SetActive(false);
+        if (!collidedObject.CompareTag("Player")) return;
+        
+        player = collidedObject.GetComponent<PlayerController>();
 
-            player.IsInRangeToInteract = false;
-            player.interactable = null;
-        }
+        interactableIndicator.SetActive(true);
+        player.IsInRangeToInteract = true;
+        player.interactable = this;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        // If 2 objects overlap, this might be a problem
+        GameObject collidedObject = other.gameObject;
+
+        if (!collidedObject.CompareTag("Player")) return;
+        
+        interactableIndicator.SetActive(false);
+        player.IsInRangeToInteract = false;
+        player.interactable = null;
     }
 
     public void Interact()
     {
-        crossfade.SetTrigger("Teleport");
+        crossfade.onTeleportCrossfade += Teleport;
+        crossfadeAnimator.SetTrigger("Teleport");
     }
 
     public void Teleport()
     {
+        crossfade.onTeleportCrossfade -= Teleport;
+        
         Teleporter teleporter = teleportDestination.GetComponent<Teleporter>();
         teleporter.cam.SetActive(true);
         cam.SetActive(false);

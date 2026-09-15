@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
 [RequireComponent(typeof(DialogueRunner))]
@@ -9,9 +8,8 @@ public class DialogueSystem : MonoBehaviour
     // Uses singleton so Yarn's variable storage persists across scenes
     public static DialogueSystem Instance { get; private set; }
 
-    [SerializeField] Animator crossfade;
-    GameObject interactivePoints;
-    DialogueRunner dialogueRunner;
+    [HideInInspector] public GameObject interactivePoints;
+    public DialogueRunner DialogueRunner { get; private set; }
 
     void Awake()
     {
@@ -24,18 +22,18 @@ public class DialogueSystem : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        dialogueRunner = GetComponent<DialogueRunner>();
+        DialogueRunner = GetComponent<DialogueRunner>();
 
         // Use AddCommandHandler instead of YarnCommand for no target parameter
-        dialogueRunner.AddCommandHandler<GameObject, bool>(
+        DialogueRunner.AddCommandHandler<GameObject, bool>(
             "set_object_inactive",
             SetObjectInactive
         );
-        dialogueRunner.AddCommandHandler<string, bool>(
+        DialogueRunner.AddCommandHandler<string, bool>(
             "set_object_active",
             SetObjectActive
         );
-        dialogueRunner.AddCommandHandler(
+        DialogueRunner.AddCommandHandler(
             "wait_for_crossfade",
             WaitForCrossfade
         );
@@ -56,6 +54,8 @@ public class DialogueSystem : MonoBehaviour
 
     IEnumerator WaitForCrossfade()
     {
+        Animator crossfade = Crossfade.Instance.Animator;
+
         if (crossfade == null)
         {
             Debug.LogError("Crossfade is missing!");

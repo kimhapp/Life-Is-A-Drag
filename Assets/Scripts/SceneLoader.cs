@@ -8,13 +8,6 @@ public class SceneLoader : MonoBehaviour, IInteractable
     [SerializeField] string transitionSceneName;
     [SerializeField] PlayerController player;
 
-    Animator crossfade;
-
-    void Start()
-    {
-        crossfade = GameObject.Find("Crossfade").GetComponent<Animator>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         GameObject collidedObject = other.gameObject;
@@ -48,13 +41,14 @@ public class SceneLoader : MonoBehaviour, IInteractable
 
     IEnumerator StartCrossfade()
     {
+        Crossfade crossfade = Crossfade.Instance;
         if (crossfade == null)
         {
             Debug.LogError("Crossfade is missing!");
             yield break;
         }
 
-        crossfade.SetTrigger("Scene");
+        crossfade.Animator.SetTrigger("Scene");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(transitionSceneName);
     }

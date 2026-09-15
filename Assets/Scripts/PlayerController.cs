@@ -29,10 +29,10 @@ public class PlayerController : MonoBehaviour
         characterRb = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
 
-        crossfade = GameObject.FindWithTag("Crossfade").GetComponent<Crossfade>();
+        crossfade = Crossfade.Instance;
         if (crossfade == null) Debug.LogError("Crossfade is missing!");
 
-        dialogueRunner = GameObject.FindWithTag("DialogueSystem").GetComponent<DialogueRunner>();
+        dialogueRunner = DialogueSystem.Instance.DialogueRunner;
         if (dialogueRunner == null) Debug.LogError("DialogueRunner is missing!");
     }
 

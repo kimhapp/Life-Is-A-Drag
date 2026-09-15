@@ -10,9 +10,9 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
     PlayerController player;
     DialogueRunner dialogueRunner;
 
-    private void Start()
+    private void Awake()
     {
-        dialogueRunner = GameObject.Find("Dialogue System").GetComponent<DialogueRunner>();
+        dialogueRunner = DialogueSystem.Instance.DialogueRunner;
     }
 
     private void OnDisable()

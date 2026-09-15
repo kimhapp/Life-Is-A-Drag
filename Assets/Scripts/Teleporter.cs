@@ -8,18 +8,15 @@ public class Teleporter : MonoBehaviour, IInteractable
 
     PlayerController player;
     Crossfade crossfade;
-    Animator crossfadeAnimator;
 
     void Awake()
     {
-        GameObject crossfadeGameObject = GameObject.FindWithTag("Crossfade");
-        if (crossfadeGameObject != null)
-        {
-            crossfade = crossfadeGameObject.GetComponent<Crossfade>();
-            crossfadeAnimator = crossfadeGameObject.GetComponent<Animator>();
-        } else
+        crossfade = Crossfade.Instance;
+
+        if (crossfade == null)
         {
             Debug.LogError("Crossfade is missing!");
+            return;
         }
     }
 
@@ -51,7 +48,7 @@ public class Teleporter : MonoBehaviour, IInteractable
     public void Interact()
     {
         crossfade.onTeleportCrossfade += Teleport;
-        crossfadeAnimator.SetTrigger("Teleport");
+        crossfade.Animator.SetTrigger("Teleport");
     }
 
     public void Teleport()

@@ -8,4 +8,5 @@ Me: Aghhh, too much to think of.
 Me: I'll just go to sleep.
 Me: ......
 Me: I have a feeling tomorrow is not gonna be a simple day.
+<<set_object_active "Scene Loader">>
 ===

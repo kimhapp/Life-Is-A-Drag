@@ -1,0 +1,48 @@
+﻿title: Day01AfternoonPart01_03
+---
+Shelly: Hey, took you long enough. Who's this?
+Me: Oh, he is Marvin. He's my classmate.
+Marvin: Hello, uhh you are?
+Shelly: Shelly! Nice to meet you.
+Shelly: I'm Jerome's highschool friend.
+Marvin: Ahh i see, Were you two close?
+-> Yeah, we were!
+    <<set $Shelly_lieThatSheIsClose = true>>
+    <<set $Shelly_honestPoint -= 1>>
+    Shelly: No, we weren't.
+    <<if !$Shelly_knowingHerName>>
+        Shelly: Dude, you didn't even remember my name.
+    <<endif>>
+-> Not really!
+    <<set $Shelly_honestPoint += 1>>
+    Shelly: Yeah, you got that right.
+    <<if $Shelly_honestPoint >= 2>>
+        <<set $Shelly_likePoint += 1>>
+        Shelly: Although I regret not at least try to be close.
+        Shelly: You're kinda alright.
+    <<endif>>
+-> *Says nothing!*
+    Shelly: No, we weren't very close.
+<<if $Shelly_lieThatSheIsClose>>
+    Marvin: Ok, that's awkward.
+    <<if $Marvin_quirkPoint >= 1>>
+        Marvin: I'm sure that he just has a hazy memory.
+    <<endif>>
+<<else>>
+    Marvin: Well, that's interesting.
+<<endif>>
+Marvin: Anyways, i feel like we should get lunch now.
+Marvin: We only have about half an hour left before class starts again.
+Me: Yeah, you're right. Let's go then.
+<<if $Shelly_lieThatSheIsClose>>
+    Shelly: Psh, fine.
+<<else>>
+    Shelly: Yep, alright.
+<<endif>>
+<<if $Marvin_quirkPoint >= 1>>
+    Marvin: I take dibs on the seat next to you Jerome.
+<<endif>>
+<<set_object_inactive InteractiveDialogueTrigger02>>
+<<wait_for_crossfade>>
+<<set_object_active "AutoDialogueTrigger02">>
+===

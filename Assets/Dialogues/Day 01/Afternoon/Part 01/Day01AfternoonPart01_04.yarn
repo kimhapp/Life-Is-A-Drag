@@ -1,0 +1,41 @@
+﻿title: Day01AfternoonPart01_04
+---
+Marvin: Looks like it's just me and you, huh?
+Me: Yep, just us!
+Marvin: I'm curious, what makes you joining art class?
+-> Because I just love creating.
+    <<set $Jerome_isCreative = true>>
+    Marvin: I see. So, you're a creative type of person.
+    Marvin: I guess we're kinda different.
+    Me: Oh how?
+-> Because I feel like art helps me describe myself.
+    <<set $Jerome_isArtistic = true>>
+    Marvin: I see. So, you're an artistic type of person.
+    Marvin: I guess I could say I'm similar to you as well.
+    Me: Oh really?
+Marvin: Well, back when I was a kid, I used to draw...a lot
+Marvin: And it was really bad, I swear to god.
+Marvin: But it helped me through tough times.
+<<if $Marvin_quirkPoint >= 1>>
+    Marvin: I used to be a bad grade student.
+    Marvin: My dad would often told me how drawings would not help my future.
+    Marvin: And that I should study more instead.
+    Marvin: I listened though and studied Computer Science full time after I graduated.
+    Marvin: But then I found about Game Development.
+    Marvin: So I decided to take this class as well to improve my artistic side.
+    Me: Oh I see. I guess we are similar with parents not wanting us to pursue art.
+    -> But I'm glad we both make it through.
+        <<set $Marvin_likePoint+= 1>>
+    -> But I'm proud that you are able to go through it.
+        <<set $Marvin_lovePoint += 1>>
+    Marvin: Hehe, yeah. Thanks for listen.
+<<else>>
+    Me: Ahh I see, I understand that feeling.
+<<endif>>
+Marvin: Anyways, enough with the heavy topic.
+Marvin: We should grab lunch quick since we only have half an hour left before class.
+Me: Ok, let's go then.
+<<set_object_inactive InteractiveDialogueTrigger03>>
+<<wait_for_crossfade>>
+<<set_object_active "AutoDialogueTrigger02">>
+===

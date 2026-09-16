@@ -1,0 +1,29 @@
+﻿title: Day01AfternoonPart01_02
+---
+Marvin: Hey, I was wondering if we could get lunch together.
+<<if $Marvin_likePoint >= 1>>
+    Marvin: We seem to be getting along after all.
+<<endif>>
+<<if $Shelly_inviteToLunch>>
+    Me: Actually, someone has already invited me to lunch as well.
+    Me: Wanna come along?
+    <<if $Marvin_quirkPoint >= 1>>
+        Marvin: Yeahhh, I'll gladly come along.
+    <<else>>
+        Marvin: Ok, I'll come along.
+    <<endif>>
+    <<set_object_inactive InteractiveDialogueTrigger01>>
+    <<wait_for_crossfade>>
+    <<set_object_active "InteractiveDialogueTrigger02">>
+<<else>>
+    Me: Yeah, sure!
+    <<if $Marvin_quirkPoint >= 1>>
+        Marvin: Hehe Ok, let's go.
+    <<else>>
+        Marvin: Ok, let's go.
+    <<endif>>
+    <<set_object_inactive InteractiveDialogueTrigger01>>
+    <<wait_for_crossfade>>
+    <<set_object_active "InteractiveDialogueTrigger03">>
+<<endif>>
+===

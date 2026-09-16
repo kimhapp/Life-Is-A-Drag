@@ -1,0 +1,85 @@
+﻿title: Day01NightPart01_02
+---
+<<if !$Shelly_hasSpokenTo>>
+    Shelly: Hey Jerome!
+    Me: Oh hey Shelly, didn't know you live nearby here.
+    Me: But why didn't I see you on the bus?
+    Shelly: I had my ride.
+    Me: I see.
+    <<if $Shelly_inviteToLunch>>
+        Shelly: Hey, thanks for today.
+        <<if $Shelly_lieThatSheIsClose>>
+            Shelly: Although, it was not cool to lie.
+            <<if $Marvin_quirkPoint >= 1>>
+                Shelly: Hope it's just your memory though.
+            <<endif>>
+            Shelly: If you're not sure, then you just don't have to say anything.
+            Shelly: I value honesty the most.
+            Me: Oh, I'm sorry. I'll remember that then.
+            Shelly: Sigh. It's alright.
+            Shelly: It's not a big deal, don't beat yourself up.
+            Shelly: Just be careful next time.
+        <<else>>
+            <<if $Shelly_honestPoint >= 2>>
+                Shelly: As much as i hate to say it
+                Shelly: I actually feel less stiff ever since this afternoon.
+                Shelly: And not to mention i got to meet your nerd classmate.
+                Shelly: He's cute though.
+                Me: Oh, haha!
+                <<if $Marvin_lovePoint>= 1>>
+                    Shelly: Although, i feel like he's more interested in you.
+                    Me: Really?
+                    Shelly: Yep, one thing I'm good at is seeing people's feeling.
+                    Shelly: Although it's not 100% correct, it's still higher than 50%.
+                    Shelly: So, what do you think of him?
+                    -> I only think of him as friend.
+                        <<set $Marvin_likePoint += $Marvin_lovePoint>>
+                        <<set $Marvin_lovePoint = 0>>
+                        <<set $Marvin_asPossibleLoveInterest = false>>
+                        Shelly: Aww, poor guy. Got rejected before even asking out.
+                        Me: Haha, don't say that.
+                    -> I guess he's also cute.
+                        <<set $Marvin_lovePoint += 2>>
+                        Shelly: Woah, interesting. Well, wish you luck then.
+                        Me: I'm not even sure if he's also interested or just friendly.
+                        Shelly: Yeah yeah!
+                <<endif>>
+                Shelly: Anyways, I appreciate you being an honest person.
+                Shelly: I'm sure that we'll get along very well in the future.
+            <<else>>
+                Shelly: It was kinda fun.
+                Shelly: And i also got to meet your classmate.
+                Shelly: He's cool.
+                Me: Yeah, he really is.
+            <<endif>>
+            Shelly: Catch you later dude.
+            Shelly: Good night
+            Me: Good night Shelly.
+        <<endif>>
+    <<else>>
+        Shelly: Long day, huh?
+        Me: Yeah.
+        Shelly: How was your day with Marvin?
+        Me: You know?
+        Shelly: We sit in the same cafeteria dude.
+        Me: Oh..sorry for rejecting your invitation this morning.
+        Shelly: It's fine, I don't really care to be honest.
+        Shelly: I was just asking for the sake of being nice.
+        Shelly: Although, wouldn't say no if you invited me tomorrow.
+        Me: I see, then I'll keep that in mind.
+        Shelly: Hey, don't go thinking I usually fake being nice.
+        Me: Haha, I'm not.
+        Me: I'm more surprised that you're really honest.
+        Shelly: Well, that's just me.
+        Shelly: I basically value honesty more than anything.
+        Shelly: I'm gonna head back to my house now.
+        Shelly: See ya tomorrow.
+        Me: See you then.
+    <<endif>>
+    <<set $Shelly_hasSpokenTo = true>>
+    <<set_object_active "Scene Loader">>
+<<else>>
+    Shelly: Go home dude.
+    Shelly: It's night time.
+<<endif>>
+===

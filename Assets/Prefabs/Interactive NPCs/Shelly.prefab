@@ -979,10 +979,7 @@ PrefabInstance:
       addedObject: {fileID: 384637141533469119}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5c2294049f63b479ed04e5ce5fc2d3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1904322112822679545}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d5c2294049f63b479ed04e5ce5fc2d3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7723786555950174038}
+      addedObject: {fileID: 2590660627540526647}
   m_SourcePrefab: {fileID: 100100000, guid: 4d5c2294049f63b479ed04e5ce5fc2d3, type: 3}
 --- !u!4 &4743511631658679671 stripped
 Transform:
@@ -1016,23 +1013,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1904322112822679545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5377163947709474765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2d2b07cde4ddc46bd71bbef264571b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  isDialogueInteractor: 1
-  yarnNodeName: ShellySetup
-  interactableIndicator: {fileID: 1786660507352320419}
---- !u!65 &7723786555950174038
-BoxCollider:
+--- !u!64 &2590660627540526647
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1046,9 +1028,10 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.5, z: 3.5}
-  m_Center: {x: 0, y: 0.5, z: 1.25}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

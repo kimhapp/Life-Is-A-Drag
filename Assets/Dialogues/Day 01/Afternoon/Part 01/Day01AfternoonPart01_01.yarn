@@ -1,0 +1,6 @@
+﻿title: Day01AfternoonPart01_01
+---
+Me: Oh hey, there's Marvin over there.
+Me: I think I should go talk to him!
+<<set_object_inactive AutoDialogueTrigger01>>
+===

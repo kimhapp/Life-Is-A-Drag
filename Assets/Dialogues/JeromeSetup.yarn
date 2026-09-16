@@ -1,0 +1,5 @@
+﻿title: JeromeSetup
+---
+<<declare $Jerome_isCreative = false>>
+<<declare $Jerome_isArtistic = false>>
+===

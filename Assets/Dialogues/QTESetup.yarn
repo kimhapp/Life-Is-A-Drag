@@ -1,0 +1,5 @@
+﻿title: QTESetup
+---
+<<declare $qteTimebarResult = "">>
+<<declare $qteButtonResult = "">>
+===

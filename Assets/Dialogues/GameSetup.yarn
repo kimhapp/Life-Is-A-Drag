@@ -1,8 +1,0 @@
-﻿title: GameSetup
----
-<<declare $currentDay = 1>>
-<<declare $currentTime = "Morning">>
-<<declare $currentObjective = "Go to School">>
-<<declare $qteTimebarResult = "">>
-<<declare $qteButtonResult = "">>
-===

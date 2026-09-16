@@ -1,0 +1,9 @@
+title: MarvinSetup
+---
+<<declare $Marvin_likePoint = 0>>
+<<declare $Marvin_quirkPoint = 0>>
+<<declare $Marvin_lovePoint = 0>>
+<<declare $Marvin_asPossibleLoveInterest = true>>
+<<declare $Marvin_hasSpokenTo = false>>
+<<declare $Marvin_reachingOutHand = false>>
+===

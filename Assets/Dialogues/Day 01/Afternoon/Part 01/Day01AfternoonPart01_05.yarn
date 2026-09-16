@@ -1,0 +1,6 @@
+﻿title: Day01AfternoonPart01_05
+---
+Me: I should head back to class now.
+<<set_object_inactive AutoDialogueTrigger02>>
+<<set_object_active "Scene Loader">>
+===

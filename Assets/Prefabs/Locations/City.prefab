@@ -180,7 +180,7 @@ Transform:
   m_GameObject: {fileID: 8534891426745803031}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.896, y: -0.5, z: -10.5}
+  m_LocalPosition: {x: 39.896, y: 1.15, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -247,7 +247,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: -0.5, z: -3}
+  FollowOffset: {x: 0, y: 1.15, z: -3}
 --- !u!114 &3564034520794932834
 MonoBehaviour:
   m_ObjectHideFlags: 0

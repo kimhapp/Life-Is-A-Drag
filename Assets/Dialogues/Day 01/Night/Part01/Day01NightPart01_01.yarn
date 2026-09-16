@@ -1,0 +1,5 @@
+﻿title: Day01NightPart01_01
+---
+Me: Wait, is that Shelly? I should talk to her.
+<<set_object_inactive AutoDialogueTrigger01>>
+===

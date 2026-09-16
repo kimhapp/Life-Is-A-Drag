@@ -1,0 +1,8 @@
+﻿title: Day01MorningPart04_01
+---
+Me: I still have time left.
+Me: Maybe I should walk around first.
+<<set_object_inactive AutoDialogueTrigger01>>
+<<set_object_active "InteractDialogueTrigger01">>
+<<set_object_active "InteractDialogueTrigger02">>
+===

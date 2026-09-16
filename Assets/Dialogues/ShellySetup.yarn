@@ -1,0 +1,10 @@
+﻿title: ShellySetup
+---
+<<declare $Shelly_likePoint = 0>>
+<<declare $Shelly_positivePoint = 0>>
+<<declare $Shelly_honestPoint = 0>>
+<<declare $Shelly_hasSpokenTo = false>>
+<<declare $Shelly_knowingHerName  = false>>
+<<declare $Shelly_inviteToLunch = false>>
+<<declare $Shelly_lieThatSheIsClose = false>>
+===

@@ -1,7 +1,0 @@
-﻿title: Day01MorningPart01_01
----
-Me: First day of school.
-Me: Gotta prepare myself first then go to school.
-<<set_object_inactive AutoDialogueTrigger01 true>>
-<<set_object_active "Scene Loader" true>>
-===

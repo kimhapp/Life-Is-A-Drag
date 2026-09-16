@@ -25,11 +25,11 @@ public class DialogueSystem : MonoBehaviour
         DialogueRunner = GetComponent<DialogueRunner>();
 
         // Use AddCommandHandler instead of YarnCommand for no target parameter
-        DialogueRunner.AddCommandHandler<GameObject, bool>(
+        DialogueRunner.AddCommandHandler<GameObject>(
             "set_object_inactive",
             SetObjectInactive
         );
-        DialogueRunner.AddCommandHandler<string, bool>(
+        DialogueRunner.AddCommandHandler<string>(
             "set_object_active",
             SetObjectActive
         );
@@ -39,17 +39,15 @@ public class DialogueSystem : MonoBehaviour
         );
     }
 
-    public IEnumerator SetObjectInactive(GameObject gameObj, bool immediate)
+    public void SetObjectInactive(GameObject gameObject)
     {
-        if (!immediate) yield return new WaitForSeconds(0.25f);
-        gameObj.SetActive(false);
+        gameObject.SetActive(false);
     }
 
-    public IEnumerator SetObjectActive(string gameObjName, bool immediate)
+    public void SetObjectActive(string gameObjectName)
     {
-        if (!immediate) yield return new WaitForSeconds(0.25f);
-        GameObject gameObj = interactivePoints.transform.Find(gameObjName).gameObject;
-        gameObj.SetActive(true);
+        GameObject gameObject = interactivePoints.transform.Find(gameObjectName).gameObject;
+        gameObject.SetActive(true);
     }
 
     IEnumerator WaitForCrossfade()

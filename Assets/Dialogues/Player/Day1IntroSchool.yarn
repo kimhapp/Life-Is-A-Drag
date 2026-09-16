@@ -1,7 +1,0 @@
-﻿title: Day1IntroSchool
----
-<<change_objective "Talk to other people in the school.">>
-<<set_object_inactive School_Trigger_Point false>>
-Me: I still have time left.
-Me: Maybe I should walk around first.
-===

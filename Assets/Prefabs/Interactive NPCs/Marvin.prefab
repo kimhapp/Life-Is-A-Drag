@@ -245,10 +245,7 @@ PrefabInstance:
       addedObject: {fileID: 5053072349412677818}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 82266fabe368c2046b833dc1db1aa2e5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5666435932132508980}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 82266fabe368c2046b833dc1db1aa2e5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1892256526165428366}
+      addedObject: {fileID: 5420524119825071913}
   m_SourcePrefab: {fileID: 100100000, guid: 82266fabe368c2046b833dc1db1aa2e5, type: 3}
 --- !u!4 &2546740429614737956 stripped
 Transform:
@@ -282,23 +279,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5666435932132508980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2890191941016727710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc2d2b07cde4ddc46bd71bbef264571b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  isDialogueInteractor: 1
-  yarnNodeName: MarvinSetup
-  interactableIndicator: {fileID: 8690531970845713818}
---- !u!65 &1892256526165428366
-BoxCollider:
+--- !u!64 &5420524119825071913
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -312,9 +294,10 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.5, z: 3.5}
-  m_Center: {x: 0, y: 0.5, z: 1.25}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

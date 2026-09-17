@@ -6,9 +6,9 @@ public class Crossfade : MonoBehaviour
 {
     // TODO: Make loading to scene 1s minimum and then waits for the scene to finish loading
     public static Crossfade Instance { get; private set; }
-    public event Action onBeginCrossfade;
-    public event Action onEndCrossfade;
-    public event Action onTeleportCrossfade;
+    public event Action OnBeginCrossfade;
+    public event Action OnEndCrossfade;
+    public event Action OnTeleportCrossfade;
     public Animator Animator { get; private set; }
 
     void Awake()
@@ -27,16 +27,16 @@ public class Crossfade : MonoBehaviour
 
     void BeginCrossfade()
     {
-        onBeginCrossfade?.Invoke();
+        OnBeginCrossfade?.Invoke();
     }
 
     void EndCrossfade()
     {
-        onEndCrossfade?.Invoke();
+        OnEndCrossfade?.Invoke();
     }
 
     void TeleportCrossfade()
     {
-        onTeleportCrossfade?.Invoke();
+        OnTeleportCrossfade?.Invoke();
     }
 }

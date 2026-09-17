@@ -41,7 +41,7 @@ title: Day01MorningPart04_03
     Shelly: Goodbye then!
     <<set $Shelly_hasSpokenTo = true>>
     <<if $Marvin_hasSpokenTo && $Shelly_hasSpokenTo>>
-        <<set_object_active "Scene_Loader">>
+        <<set_object_active "Scene Loader">>
     <<endif>>
 <<else>>
     Shelly: As much as i want to talk, we both have class to attend to.

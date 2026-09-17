@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -10,7 +11,8 @@ public class DialogueSystem : MonoBehaviour
 
     [HideInInspector] public GameObject interactivePoints;
     public DialogueRunner DialogueRunner { get; private set; }
-
+    public LinePresenter linePresenter;
+    
     void Awake()
     {
         if (Instance != null && Instance != this)

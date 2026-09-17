@@ -14,10 +14,12 @@ public enum BlipType
 [RequireComponent(typeof(AudioSource))]
 public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
 {
+    // TODO: Swap array with something more concrete like 2D array, Dictionary 
+    // As for now blip order must match enum order which is super fragile
     [SerializeField] AudioClip[] blips;
-    [SerializeField] LinePresenter linePresenter;
-    [SerializeField] TextMeshProUGUI characterName;
 
+    public LinePresenter linePresenter;
+    TMP_Text characterNameGUI;
     AudioSource blipAudioSource;
 
     public void OnLineDisplayBegin(MarkupParseResult line, TMP_Text text) { }
@@ -31,10 +33,16 @@ public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
     void Awake()
     {
         blipAudioSource = GetComponent<AudioSource>();
-    }
 
-    void Start()
-    {
+        linePresenter = DialogueSystem.Instance.linePresenter;
+
+        if(linePresenter == null) 
+        { 
+            Debug.LogError("Line Presenter is missing!");
+            return;
+        }
+        
+        characterNameGUI = linePresenter.characterNameText;
         linePresenter.Typewriter.ActionMarkupHandlers.Add(this);
     }
 
@@ -45,7 +53,7 @@ public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
 
         if (!char.IsPunctuation(character) && !char.IsWhiteSpace(character))
         {
-            BlipType blipType = characterName.text switch
+            BlipType blipType = characterNameGUI.text switch
             {
                 "Me" => BlipType.Me,
                 "Shelly" => BlipType.Shelly,
@@ -54,9 +62,21 @@ public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
             };
 
             AudioClip blip = blips[(int) blipType];
-            blipAudioSource.PlayOneShot(blip);
+
+            if (!blipAudioSource.isPlaying)
+            {
+                blipAudioSource.PlayOneShot(blip);
+            }
         }
 
         return YarnTask.CompletedTask;
+    }
+
+    void OnDestroy()
+    {
+        if (linePresenter != null)
+        {
+            linePresenter.Typewriter.ActionMarkupHandlers.Remove(this);
+        }
     }
 }

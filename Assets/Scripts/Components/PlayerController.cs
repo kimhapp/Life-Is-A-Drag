@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     bool isFacingLeft = false;
     bool controllable = true;
+    bool isDialogueActive = false;
     Vector2 moveDirection;
 
     void Awake()
@@ -40,14 +41,14 @@ public class PlayerController : MonoBehaviour
     {
         if (crossfade != null)
         {
-            crossfade.onBeginCrossfade += cannotControl;
-            crossfade.onEndCrossfade += canControl;
+            crossfade.OnBeginCrossfade += cannotControl;
+            crossfade.OnEndCrossfade += canControl;
         }
 
         if (dialogueRunner != null)
         {
-            dialogueRunner.onDialogueStart.AddListener(cannotControl);
-            dialogueRunner.onDialogueComplete.AddListener(canControl);
+            dialogueRunner.onDialogueStart.AddListener(cannotControlOverride);
+            dialogueRunner.onDialogueComplete.AddListener(canControlOverride);
         }
 
         interact.action.started += Interact;
@@ -61,26 +62,29 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (controllable)
+        if (!controllable)
         {
-            moveDirection = move.action.ReadValue<Vector2>();
-            CheckMovement();
-            characterRb.linearVelocity = speed * moveDirection;
+            characterRb.linearVelocity = Vector2.zero;
+            return;
         }
+        
+        moveDirection = move.action.ReadValue<Vector2>();
+        CheckMovement();
+        characterRb.linearVelocity = speed * moveDirection;
     }
 
     void OnDisable()
     {
         if (crossfade != null)
         {
-            crossfade.onBeginCrossfade -= cannotControl;
-            crossfade.onEndCrossfade -= canControl;
+            crossfade.OnBeginCrossfade -= cannotControl;
+            crossfade.OnEndCrossfade -= canControl;
         }
 
         if (dialogueRunner != null)
         {
-            dialogueRunner.onDialogueStart.RemoveListener(cannotControl);
-            dialogueRunner.onDialogueComplete.RemoveListener(canControl);
+            dialogueRunner.onDialogueStart.RemoveListener(cannotControlOverride);
+            dialogueRunner.onDialogueComplete.RemoveListener(canControlOverride);
         }
 
         interact.action.started -= Interact;
@@ -94,15 +98,37 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void cannotControl()
+    void cannotControlOverride()
     {
+        // Dialogue takes the priority as it cannot be outlived by crossfade
+        // If it does, then there is something wrong with the setup
+        isDialogueActive = true;
         controllable = false;
         playerAnimator.SetBool("Walk", false); // In case the player was walking when interact with the objects
     }
 
+    void cannotControl()
+    {
+        if (!isDialogueActive)
+        {
+            controllable = false;
+            playerAnimator.SetBool("Walk", false); // In case the player was walking when interact with the objects
+        }
+    }
+
+    void canControlOverride()
+    {
+        isDialogueActive = false;
+        controllable = true;
+    }
+
+
     void canControl()
     {
-        controllable = true;
+        if (!isDialogueActive)
+        {
+            controllable = true;
+        }
     }
 
     void CheckMovement()

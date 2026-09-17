@@ -1,5 +1,6 @@
 ﻿title: Day01NightPart02_01
 ---
+<<set $Shelly_hasSpokenTo = false>>
 Me: God, what a day huh.
 Me: I think today is not bad for my first day.
 Me: Met 2 people as well.

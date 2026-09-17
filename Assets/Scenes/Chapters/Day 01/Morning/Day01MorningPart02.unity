@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2958262985454349548, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: lettersPerSecond
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2958262986520364887, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -349,6 +353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem
   interactivePoints: {fileID: 0}
+  linePresenter: {fileID: 136432021}
+  characterNameGUI: {fileID: 136432020}
 --- !u!114 &136432019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,8 +576,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 95a4aec3c0c6da8cbafc3094418ea689, type: 3}
   - {fileID: 8300000, guid: 5d276a910d4b992d6839cc6afed9b9ca, type: 3}
   - {fileID: 8300000, guid: 3726186874971a9969d973b5ab7033b2, type: 3}
-  linePresenter: {fileID: 136432021}
-  characterName: {fileID: 136432020}
 --- !u!82 &488752179
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1072,7 +1076,7 @@ Transform:
   m_GameObject: {fileID: 1596334649}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21, y: 0.5, z: -6.85}
+  m_LocalPosition: {x: 21, y: 0, z: -6.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

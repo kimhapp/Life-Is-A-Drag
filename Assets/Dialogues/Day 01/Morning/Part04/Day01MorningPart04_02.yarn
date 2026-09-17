@@ -33,7 +33,7 @@ title: Day01MorningPart04_02
         <<endif>>
     <<set $Marvin_hasSpokenTo = true>>
     <<if $Marvin_hasSpokenTo && $Shelly_hasSpokenTo>>
-        <<set_object_active "Scene_Loader">>
+        <<set_object_active "Scene Loader">>
     <<endif>>
 <<else>>
     <<if $Marvin_reachingOutHand>>

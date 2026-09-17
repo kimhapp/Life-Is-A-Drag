@@ -47,13 +47,13 @@ public class Teleporter : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        crossfade.onTeleportCrossfade += Teleport;
+        crossfade.OnTeleportCrossfade += Teleport;
         crossfade.Animator.SetTrigger("Teleport");
     }
 
     public void Teleport()
     {
-        crossfade.onTeleportCrossfade -= Teleport;
+        crossfade.OnTeleportCrossfade -= Teleport;
         
         Teleporter teleporter = teleportDestination.GetComponent<Teleporter>();
         teleporter.cam.SetActive(true);

@@ -11,7 +11,7 @@ public class ButtonController : MonoBehaviour
 
     public void OnPlayButtonClicked()
     {
-        StartCoroutine(LoadScene("Main Scene"));
+        StartCoroutine(LoadScene("Day01MorningPart01"));
     }
 
     public void OnReturnButtonClicked()

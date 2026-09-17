@@ -17,10 +17,4 @@ public class Summary : MonoBehaviour
                     "Love Point: " + PlayerPrefs.GetFloat("Marvin_lovePoint") + "\n" +
                     "Quirk Point: " + PlayerPrefs.GetFloat("Marvin_quirkPoint");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

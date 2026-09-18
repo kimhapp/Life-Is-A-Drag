@@ -1,0 +1,55 @@
+# [Life Is A Drag]
+
+A short 3D dialogue-driven prototype built in Unity focused dialogue system, interaction triggers, and scene transitions.
+
+## What's in it
+
+- Dialogue system using Yarn Spinner
+- Per-character text blip audio
+- Scene transitions with fading black screen
+- Player movement locked during dialogue
+
+## Screenshots / GIF
+
+[One image or GIF of the game. Even a static screenshot helps.]
+
+## How to run
+
+1. Clone the repo
+2. Open in Unity 6000.3.8f1
+3. Open `Assets/Scenes/Main Menu.unity`
+4. Press Play
+
+## Controls
+
+- A and D — Move Left/Right
+- F — Interact
+- Space - Continue dialogue
+- Up/Down Arrow Keys - Navigate dialogue choices
+- Enter - Select a choice
+
+
+## What I'd improve with more time
+
+- Animations for player and NPCs during dialogue
+- More variety of animations for idling NPCs
+- Cleaner 'BlipType' lookup
+- Better dialogue UI
+- Loading screen between scene transitions
+- Integrate QTE mechanics to gameplay and UI (base class already exists)
+- Expand more on story content
+
+## Credits
+
+- Yarn Spinner — dialogue system
+- Blip sounds — by me using audacity
+- All other assets (art, audio, fonts, sky materials) are not owned by me.
+  They are used under CC0 or free-use licenses. Original creators credited where known. 
+  If you recognize an unattributed asset, reach out and I'll add it.
+- All other code written by me
+
+## Built with
+
+- Unity 6000.3.8f1
+- C#
+- Yarn Spinner

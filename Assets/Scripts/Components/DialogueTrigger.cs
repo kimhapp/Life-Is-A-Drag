@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Yarn.Unity;
 
 public class DialogueTrigger : MonoBehaviour, IInteractable
@@ -9,18 +10,34 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
     
     PlayerController player;
     DialogueRunner dialogueRunner;
+    UnityAction OnDialogueStartHandler;
+    UnityAction OnDialogueCompleteHandler;
+
 
     private void Awake()
     {
         dialogueRunner = DialogueSystem.Instance.DialogueRunner;
+
+        if (dialogueRunner == null)
+        {
+            Debug.LogError("DialogueRunner is missing!");
+        }
     }
 
     private void OnDisable()
     {
+        // If the object suddenly disappears
+        // This will make sure the player is not pointing to this object
         if (player != null && player.interactable == (IInteractable)this && dialogueType == Type.Interact)
         {
             player.IsInRangeToInteract = false;
             player.interactable = null;
+        }
+
+        if (dialogueType == Type.Interact)
+        {
+            dialogueRunner.onDialogueStart.RemoveListener(OnDialogueStartHandler);
+            dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueCompleteHandler);
         }
     }
 
@@ -41,6 +58,15 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
             player = collidedObject.GetComponent<PlayerController>();
             player.IsInRangeToInteract = true;
             player.interactable = this;
+
+            // Use action to hold as a listener in order to remove them later
+            OnDialogueStartHandler = () => interactableIndicator.SetActive(false);
+            OnDialogueCompleteHandler = () => { 
+                if (player.interactable == (IInteractable)this) interactableIndicator.SetActive(true);
+            };
+
+            dialogueRunner.onDialogueStart.AddListener(OnDialogueStartHandler);
+            dialogueRunner.onDialogueComplete.AddListener(OnDialogueCompleteHandler);
         }
     }
 
@@ -55,6 +81,9 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
             player = collidedObject.GetComponent<PlayerController>();
             player.IsInRangeToInteract = false;
             player.interactable = null;
+
+            dialogueRunner.onDialogueStart.RemoveListener(OnDialogueStartHandler);
+            dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueCompleteHandler);
         }
     }
 

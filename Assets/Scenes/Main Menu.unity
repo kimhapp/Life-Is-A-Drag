@@ -966,6 +966,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &969971701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7174251531024938990, guid: 20b474c02017dab48ac15d5e1d0cbdf8, type: 3}
+  m_PrefabInstance: {fileID: 1667341595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1021320304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,6 +1591,18 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5476754892309248387, guid: 20b474c02017dab48ac15d5e1d0cbdf8, type: 3}
   m_PrefabInstance: {fileID: 1667341595}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1417424659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969971701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb43f6b81142204da6c61deca62b8ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Crossfade
 --- !u!1 &1621815036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1836,10 @@ PrefabInstance:
     - {fileID: 7492636038802186433, guid: 20b474c02017dab48ac15d5e1d0cbdf8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7174251531024938990, guid: 20b474c02017dab48ac15d5e1d0cbdf8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1417424659}
   m_SourcePrefab: {fileID: 100100000, guid: 20b474c02017dab48ac15d5e1d0cbdf8, type: 3}
 --- !u!1 &1682483342
 GameObject:
@@ -2275,9 +2295,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "- A to walk left\n- D to walk right\n- F TO Interact with npcs or objective\n-
-    Space to continue dialogue\n- Enter to choose choice\n- follow the objective
-    to complete \n  the day"
+  m_text: "- A to walk left\n- D to walk right\n- F to Interact with npcs or objective\n-
+    Space to continue dialogue\n- Enter to choose a decision\n- Walk around and explore
+    to find the next \nObjectives\n- Interact with NPCs and objects to progress"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f959c7f0df2718145a895b2c27474cfb, type: 2}
   m_sharedMaterial: {fileID: 7095345579583525098, guid: f959c7f0df2718145a895b2c27474cfb, type: 2}
@@ -2414,7 +2434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How to pLay
+  m_text: How to Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f959c7f0df2718145a895b2c27474cfb, type: 2}
   m_sharedMaterial: {fileID: 7095345579583525098, guid: f959c7f0df2718145a895b2c27474cfb, type: 2}

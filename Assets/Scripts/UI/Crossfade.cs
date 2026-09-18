@@ -25,6 +25,7 @@ public class Crossfade : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
+    // These fuctions are called by Unity Animation event
     void BeginCrossfade()
     {
         OnBeginCrossfade?.Invoke();

@@ -255,7 +255,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3039931112731317331, guid: 48f70b97d1188367db73679a3b985907, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 48f70b97d1188367db73679a3b985907, type: 3}
 --- !u!4 &299021631 stripped
 Transform:
@@ -1229,7 +1232,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: cdcf7e973b77e684096bb50bd3fe678b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

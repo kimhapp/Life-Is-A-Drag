@@ -692,6 +692,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 484146575}
     m_Modifications:
+    - target: {fileID: 4508278945494884791, guid: 431d22d77b6256141a49226e6981a45c, type: 3}
+      propertyPath: yarnNodeName
+      value: Day01MorningPart04_01
+      objectReference: {fileID: 0}
     - target: {fileID: 6854742356818735160, guid: 431d22d77b6256141a49226e6981a45c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.69

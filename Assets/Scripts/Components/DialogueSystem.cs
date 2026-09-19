@@ -1,11 +1,11 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using Yarn.Unity;
 
 [RequireComponent(typeof(DialogueRunner))]
 public class DialogueSystem : MonoBehaviour
 {
+    // TODO: Implement an autosave whenever a scene transition
     // Uses singleton so Yarn's variable storage persists across scenes
     public static DialogueSystem Instance { get; private set; }
 

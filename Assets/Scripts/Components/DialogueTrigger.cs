@@ -5,7 +5,6 @@ using Yarn.Unity;
 public class DialogueTrigger : MonoBehaviour, IInteractable
 {
     [SerializeField] string yarnNodeName;
-    [SerializeField] public Type dialogueType;
     [SerializeField] GameObject interactableIndicator;
     
     PlayerController player;
@@ -14,7 +13,7 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
     UnityAction OnDialogueCompleteHandler;
 
 
-    private void Awake()
+    void Awake()
     {
         dialogueRunner = DialogueSystem.Instance.DialogueRunner;
 
@@ -24,35 +23,26 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
         }
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         // If the object suddenly disappears
         // This will make sure the player is not pointing to this object
-        if (player != null && player.interactable == (IInteractable)this && dialogueType == Type.Interact)
+        if (player != null && player.interactable == (IInteractable)this)
         {
             player.IsInRangeToInteract = false;
             player.interactable = null;
         }
-
-        if (dialogueType == Type.Interact)
-        {
-            dialogueRunner.onDialogueStart.RemoveListener(OnDialogueStartHandler);
-            dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueCompleteHandler);
-        }
+        
+        dialogueRunner.onDialogueStart.RemoveListener(OnDialogueStartHandler);
+        dialogueRunner.onDialogueComplete.RemoveListener(OnDialogueCompleteHandler);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         GameObject collidedObject = other.gameObject;
 
         if (collidedObject.CompareTag("Player"))
         {
-            if (dialogueType == Type.Auto)
-            {
-                dialogueRunner.StartDialogue(yarnNodeName);
-                return;
-            }
-
             interactableIndicator.SetActive(true);
 
             player = collidedObject.GetComponent<PlayerController>();
@@ -70,11 +60,11 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         GameObject collidedObject = other.gameObject;
 
-        if (collidedObject.CompareTag("Player") && dialogueType == Type.Interact)
+        if (collidedObject.CompareTag("Player"))
         {
             interactableIndicator.SetActive(false);
 
@@ -89,14 +79,6 @@ public class DialogueTrigger : MonoBehaviour, IInteractable
 
     public void Interact()
     {   
-        if (dialogueType == Type.Interact)
-        {
-            dialogueRunner.StartDialogue(yarnNodeName);
-        }  
-    }
-
-    public enum Type {
-        Auto,
-        Interact
+        dialogueRunner.StartDialogue(yarnNodeName);
     }
 }

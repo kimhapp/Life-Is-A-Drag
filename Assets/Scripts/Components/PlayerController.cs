@@ -138,12 +138,12 @@ public class PlayerController : MonoBehaviour
             if (moveDirection.x < 0 && !isFacingLeft)
             {
                 isFacingLeft = true;
-                transform.rotation = Quaternion.Euler(0, -90, 0);
+                characterRb.MoveRotation(Quaternion.Euler(0, -90, 0));
             }
             else if (moveDirection.x > 0 && isFacingLeft)
             {
                 isFacingLeft = false;
-                transform.rotation = Quaternion.Euler(0, 90, 0);
+                characterRb.MoveRotation(Quaternion.Euler(0, 90, 0));
             }
 
             playerAnimator.SetBool("Walk", true);

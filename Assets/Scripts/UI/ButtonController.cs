@@ -5,18 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
-    [SerializeField] Animator crossfade;
     [SerializeField] GameObject MainMenuScreen;
     [SerializeField] GameObject HowToPlayScreen;
 
     public void OnPlayButtonClicked()
     {
         StartCoroutine(LoadScene("Day01MorningPart01"));
-    }
-
-    public void OnReturnButtonClicked()
-    {
-        StartCoroutine(LoadScene("Main Menu"));
     }
 
     public void OnHowToPlayButtonClicked()
@@ -42,7 +36,14 @@ public class ButtonController : MonoBehaviour
 
     IEnumerator LoadScene(string scene)
     {
-        crossfade.SetTrigger("Scene");
+        Crossfade crossfade = Crossfade.Instance;
+        if (crossfade == null)
+        {
+            Debug.LogError("Crossfade is missing!");
+            yield break;
+        }
+
+        crossfade.Animator.SetTrigger("Scene");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(scene);
     }

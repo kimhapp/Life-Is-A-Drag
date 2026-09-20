@@ -2,15 +2,23 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
     [SerializeField] GameObject MainMenuScreen;
     [SerializeField] GameObject HowToPlayScreen;
 
+    bool hasPressedPlay = false;
+
     public void OnPlayButtonClicked()
     {
-        StartCoroutine(LoadScene("Day01MorningPart01"));
+        // To prevent more than 1 input
+        if (!hasPressedPlay)
+        {
+            hasPressedPlay = true;
+            StartCoroutine(LoadScene("Day01MorningPart01"));
+        }
     }
 
     public void OnHowToPlayButtonClicked()

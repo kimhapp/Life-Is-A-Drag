@@ -1,17 +1,39 @@
-# [Life Is A Drag]
+**Link to the prototype: https://dumplinglover.itch.io/life-is-a-drag**
 
-A short 3D dialogue-driven prototype built in Unity focused dialogue system, interaction triggers, and scene transitions.
+## [Life Is A Drag]
 
-## What's in it
+A visual novel prototype focused on a character named Jerome, who is on his first day at a college and meets his old classmate Shelly and a new classmate Marvin. This prototype integrates Yarn Spinner as a dialogue narrative system with Unity and is just a showcase, not an actual demo.
 
-- Dialogue system using Yarn Spinner
-- Per-character text blip audio
-- Scene transitions with fading black screen
-- Player movement locked during dialogue
+## Screenshots
 
-## Screenshots / GIF
+![Room](Screenshots/room.png)
+![Town](Screenshots/town.png)
+![City](Screenshots/city.png)
+![School](Screenshots/school.png)
 
-[One image or GIF of the game. Even a static screenshot helps.]
+## Systems I built for this prototype
+
+- Uses Yarn Spinner's dialoguerunner as the main system for the game, builds a custom script to make it a singleton, and holds custom commands for yarn scripts.
+- An IInteractable interface so the player knows that something can be interacted with:
+  - Scene Loader: Scene transition when interacted with.
+  - DialogueTrigger(Interactable): Play dialogue when interacted with.
+  - Teleporter(base class implemented, to be integrated in the next chapter): Teleport and switch the camera to the destination when interacted with.
+- Two dialogue trigger types: Interact and Auto.
+- Crossfade system as a singleton which handles the fading effect (and also a loading screen in future implementation) on scene transitions.
+- BlipPlayer implements IActionMarkupsHandler (Yarn's interface) to subscribe to the typewriter's ActionMarkupHandlers and plays a blip sound as each character appears.
+- QTE Button/Timebar (base class implemented, to be integrated in the next chapter) that handles Quick-Time Events and sends a command to yarn scripts to start a QTE, waits until the event ends, and returns the result.
+
+## Structure
+
+- Assets/Scripts/: gameplay code
+- Assets/Dialogues/: dialogue scripts
+- Assets/Scenes/: scene files
+- Assets/Fbx/: 3D assets
+- Assets/Prefabs/: prefabs
+- Assets/Audios/: audio files
+- Assets/Fonts/: fonts
+- Assets/Animation/: unity animation controllers
+- Assets/AllSkyFree/: sky materials
 
 ## How to run
 
@@ -22,14 +44,18 @@ A short 3D dialogue-driven prototype built in Unity focused dialogue system, int
 
 ## Controls
 
-- A and D — Move Left/Right
-- F — Interact
-- Space - Continue dialogue
-- Up/Down Arrow Keys - Navigate dialogue choices
-- Enter - Select a choice
+- A/D: Moving left and right
+- F: Interact with objects
+- Space: Continue the dialogue
+- Up/Down Arrow Keys: Navigate choices
+- Enter: Select the choice
+
+## Goals
+
+Explore the area to find the next objectives, interact with the objects, read the dialogues, select choices and progress to the end of the chapter.
 
 
-## What I'd improve with more time
+## Future Technical Improvements
 
 - Animations for player and NPCs during dialogue
 - More variety of animations for idling NPCs
@@ -37,13 +63,23 @@ A short 3D dialogue-driven prototype built in Unity focused dialogue system, int
 - Better dialogue UI
 - Loading screen between scene transitions
 - Integrate QTE mechanics to gameplay and UI (base class already exists)
-- Expand more on story content
+
+## Future Story and Visual Improvements
+
+The story and art will change a lot in a proper demo, however NPCs like Marvin and Shelly will keep similar personalities and designs. The demo will use a PC build instead of Web.
+
+## What I have learned
+
+This project was started as a research project and then later on developed into a playable prototype. This was my first time touching Yarn Spinner in Unity. There were only a few tutorials on YouTube, so I learned them through documentations and package sources. 
+
+In the end, I managed to integrate Yarn to this project, learned about script execution order, singletons and shipped a WebGL build of this prototype.
 
 ## Credits
 
-- Yarn Spinner — dialogue system
-- Blip sounds — by me using audacity
-- All other assets (art, audio, fonts, sky materials) are not owned by me.
+- Yarn Spinner: yarnspinner.dev
+- Blip sounds: by me using audacity
+- 3D Assets: Kenney assets
+- All other assets (audio, fonts, sky materials) are not owned by me.
   They are used under CC0 or free-use licenses. Original creators credited where known. 
   If you recognize an unattributed asset, reach out and I'll add it.
 - All other code written by me

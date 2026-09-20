@@ -18,7 +18,7 @@ public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
     // As for now blip order must match enum order which is super fragile
     [SerializeField] AudioClip[] blips;
 
-    public LinePresenter linePresenter;
+    LinePresenter linePresenter;
     TMP_Text characterNameGUI;
     AudioSource blipAudioSource;
 
@@ -43,6 +43,12 @@ public class BlipPlayer : MonoBehaviour, IActionMarkupHandler
         }
         
         characterNameGUI = linePresenter.characterNameText;
+    }
+
+    void Start()
+    {
+        // Needs to be added in Start
+        // As the typewriter only get instantiated in linePresenter's Awake
         linePresenter.Typewriter.ActionMarkupHandlers.Add(this);
     }
 

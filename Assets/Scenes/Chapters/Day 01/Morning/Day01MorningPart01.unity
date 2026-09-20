@@ -288,7 +288,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 95a4aec3c0c6da8cbafc3094418ea689, type: 3}
   - {fileID: 8300000, guid: 5d276a910d4b992d6839cc6afed9b9ca, type: 3}
   - {fileID: 8300000, guid: 3726186874971a9969d973b5ab7033b2, type: 3}
-  linePresenter: {fileID: 0}
 --- !u!82 &488752179
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1329,11 +1328,51 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5899262711707261395, guid: 477b39d08d9212a77948d554ce013ea8, type: 3}
+      propertyPath: hasTransferredLegacyMapping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5899262711707261394, guid: 477b39d08d9212a77948d554ce013ea8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1900618584}
   m_SourcePrefab: {fileID: 100100000, guid: 477b39d08d9212a77948d554ce013ea8, type: 3}
+--- !u!114 &1900618582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5899262711707261395, guid: 477b39d08d9212a77948d554ce013ea8, type: 3}
+  m_PrefabInstance: {fileID: 1900618581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900618583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61503eb6a998a4af68e0dcbec4aad8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1900618583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5899262711707261394, guid: 477b39d08d9212a77948d554ce013ea8, type: 3}
+  m_PrefabInstance: {fileID: 1900618581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1900618584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900618583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad15240c88dde41159620e5f27277386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: YarnSpinner.Unity::Yarn.Unity.LineAdvancerInput.KeyCodes
+  lineAdvancer: {fileID: 1900618582}
+  hurryUpLineKeyCode: 32
+  nextLineKeyCode: 27
+  hurryUpOptionsKeyCode: 32
+  cancelDialogueKeyCode: 0
 --- !u!1 &2074654524
 GameObject:
   m_ObjectHideFlags: 0

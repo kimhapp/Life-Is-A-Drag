@@ -14,6 +14,9 @@ public class Crossfade : MonoBehaviour
 
     void Awake()
     {
+        // Do not try to destroy the object through Main Menu
+        // As this script was set to execute before any other scripts
+        // Which will destroy the object when entering the game through Main Menu
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
